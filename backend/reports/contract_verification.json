@@ -1,0 +1,154 @@
+{
+  "generated_at": "2026-11-24T08:03:44",
+  "fastapi": "http://127.0.0.1:9000",
+  "django": "http://127.0.0.1:8000",
+  "total": 29,
+  "passed": 29,
+  "checks": [
+    {
+      "test": "/health payload",
+      "outcome": "PASS",
+      "detail": "identical"
+    },
+    {
+      "test": "/health field set",
+      "outcome": "PASS",
+      "detail": "same keys"
+    },
+    {
+      "test": "/model/metadata payload",
+      "outcome": "PASS",
+      "detail": "identical"
+    },
+    {
+      "test": "/predict sample_fake_1.jpg",
+      "outcome": "PASS",
+      "detail": "identical"
+    },
+    {
+      "test": "/predict sample_fake_2.jpg",
+      "outcome": "PASS",
+      "detail": "identical"
+    },
+    {
+      "test": "/predict sample_fake_3.jpg",
+      "outcome": "PASS",
+      "detail": "identical"
+    },
+    {
+      "test": "/predict sample_fake_4.jpg",
+      "outcome": "PASS",
+      "detail": "identical"
+    },
+    {
+      "test": "/predict sample_fake_5.jpg",
+      "outcome": "PASS",
+      "detail": "identical"
+    },
+    {
+      "test": "/predict sample_real_1.jpg",
+      "outcome": "PASS",
+      "detail": "identical"
+    },
+    {
+      "test": "/predict sample_real_2.jpg",
+      "outcome": "PASS",
+      "detail": "identical"
+    },
+    {
+      "test": "/predict sample_real_3.jpg",
+      "outcome": "PASS",
+      "detail": "identical"
+    },
+    {
+      "test": "/predict sample_real_4.jpg",
+      "outcome": "PASS",
+      "detail": "identical"
+    },
+    {
+      "test": "/predict sample_real_5.jpg",
+      "outcome": "PASS",
+      "detail": "identical"
+    },
+    {
+      "test": "/predict sample.jpg",
+      "outcome": "PASS",
+      "detail": "identical"
+    },
+    {
+      "test": "/predict/visualize sample_fake_2.jpg target=fake",
+      "outcome": "PASS",
+      "detail": "identical"
+    },
+    {
+      "test": "Grad-CAM PNG bytes identical (sample_fake_2.jpg, target=fake)",
+      "outcome": "PASS",
+      "detail": ""
+    },
+    {
+      "test": "/predict/visualize sample_fake_2.jpg target=real",
+      "outcome": "PASS",
+      "detail": "identical"
+    },
+    {
+      "test": "Grad-CAM PNG bytes identical (sample_fake_2.jpg, target=real)",
+      "outcome": "PASS",
+      "detail": ""
+    },
+    {
+      "test": "/predict/visualize sample.jpg target=fake",
+      "outcome": "PASS",
+      "detail": "identical"
+    },
+    {
+      "test": "Grad-CAM PNG bytes identical (sample.jpg, target=fake)",
+      "outcome": "PASS",
+      "detail": ""
+    },
+    {
+      "test": "/predict/visualize sample.jpg target=real",
+      "outcome": "PASS",
+      "detail": "identical"
+    },
+    {
+      "test": "Grad-CAM PNG bytes identical (sample.jpg, target=real)",
+      "outcome": "PASS",
+      "detail": ""
+    },
+    {
+      "test": "status code equal",
+      "outcome": "PASS",
+      "detail": "fastapi=400 django=400"
+    },
+    {
+      "test": "error body (invalid image)",
+      "outcome": "PASS",
+      "detail": "identical"
+    },
+    {
+      "test": "error body has error/detail/status_code",
+      "outcome": "PASS",
+      "detail": "['detail', 'error', 'status_code']"
+    },
+    {
+      "test": "[6a] proper multipart without file: status equal",
+      "outcome": "PASS",
+      "detail": "fastapi=422 django=422"
+    },
+    {
+      "test": "[6b] proper multipart without file: body byte-identical",
+      "outcome": "PASS",
+      "detail": ""
+    },
+    {
+      "test": "[6a] empty post: status equal",
+      "outcome": "PASS",
+      "detail": "fastapi=422 django=422"
+    },
+    {
+      "test": "[6b] empty post: body byte-identical",
+      "outcome": "PASS",
+      "detail": ""
+    }
+  ]
+}

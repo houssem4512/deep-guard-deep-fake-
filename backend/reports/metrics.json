@@ -1,0 +1,65 @@
+{
+  "generated_at": "2026-11-18T22:05:10+01:00",
+  "source": "Evaluation outputs of the training notebook (Deepfake_AdaptiveFusion_MLOps_officielle.ipynb, git commit afa1240) recovered from the project archive's git history",
+  "checkpoint": "AdaptiveFusion_best_model.pth — 125.1 MB state_dict, trained on Colab; downloaded at runtime from Kaggle (weights_source=kaggle_kernel) and never committed (models/ is DVC-tracked and .gitignore excludes *.pth / *.onnx)",
+  "note": "Metrics of the TRAINED checkpoint as reported by its evaluation run. The package ships CI dummy weights with the same serving contract; drop the real .pth + .onnx into models/ to serve these numbers.",
+  "threshold": { "selected": 0.5 },
+  "test": {
+    "split": "140k Real and Fake Faces — in-distribution test subset",
+    "n_samples": 10000,
+    "accuracy": 0.9979,
+    "balanced_accuracy": 0.9979,
+    "precision": 0.9972,
+    "recall": 0.9986,
+    "f1": 0.9979,
+    "auc": 1.0,
+    "eer": 0.0021,
+    "loss": 0.0557,
+    "real_accuracy": 0.9972,
+    "fake_accuracy": 0.9986
+  },
+  "valid": {
+    "split": "mixture of 5 sources (in-distribution validation subset)",
+    "n_samples": 4000,
+    "accuracy": 0.9912,
+    "f1": 0.9913,
+    "early_stopped_epoch": 28
+  },
+  "cross_dataset": {
+    "overall": {
+      "split": "Face-VAE + GANsformer (generators never seen in training)",
+      "n_samples": 1054,
+      "accuracy": 0.8387,
+      "auc": 0.952,
+      "eer": 0.087,
+      "real_accuracy": 0.99,
+      "fake_miss_rate": 0.31
+    }
+  },
+  "fusion_weights": {
+    "note": "Per-class gate statistics on the test split; 4,906 distinct gate values -> the gate is input-dependent (adaptive).",
+    "fake": { "spatial_mean": 0.9988, "spatial_median": 1.0, "frequency_mean": 0.0012 },
+    "real": { "spatial_mean": 0.0113, "spatial_median": 0.0086, "frequency_mean": 0.9887 }
+  },
+  "training": {
+    "dataset": "140k Real and Fake Faces (Kaggle xhlulu) — real: FFHQ, fake: StyleGAN",
+    "per_class": { "train": 10000, "valid": 2000, "test": 5000 },
+    "epochs": 30,
+    "early_stopping": "F1(validation), patience 5 — best weights restored, stopped at epoch 28",
+    "label_smoothing": [0.05, 0.95],
+    "schedule": "cosine annealing, gradient clipping 1.0",
+    "learning_rates": { "backbone": 1e-05, "fusion": 0.0001, "classifier": 0.0002 },
+    "weight_decay": 0.05
+  },
+  "parameters": {
+    "total": 31938770,
+    "spatial_net": 22148296,
+    "freq_net": 19590,
+    "spatial_projection": 3216640,
+    "frequency_projection": 5625088,
+    "fusion_gate": 466306,
+    "classifier": 462849,
+    "residual_scale": 1
+  },
+  "model": { "git_sha": "7c069cdb964d710d3119018e1a32757c49407783" }
+}
